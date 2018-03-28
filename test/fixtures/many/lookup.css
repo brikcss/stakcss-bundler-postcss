@@ -1,0 +1,9 @@
+/* postcss-property-lookup plugin */
+.Test {
+	margin-left: 20px;
+	margin-right: @margin-left;
+	color: red;
+	background: @color url('test.png');
+	line-height: 1.5;
+	font-size: @(line-height)em;
+}

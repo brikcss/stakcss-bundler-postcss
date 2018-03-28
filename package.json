@@ -1,0 +1,74 @@
+{
+	"name": "@brikcss/stakcss-bundler-postcss",
+	"version": "0.0.1",
+	"description": "Stakcss bundler which runs PostCSS.",
+	"author": "Brikcss <https://github.com/brikcss>",
+	"contributors": [
+		"The Zimmee <thezimmee@gmail.com>"
+	],
+	"homepage": "https://github.com/brikcss/stakcss-bundler-postcss",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brikcss/stakcss-bundler-postcss.git"
+	},
+	"bugs": {
+		"url": "https://github.com/brikcss/stakcss-bundler-postcss/issues"
+	},
+	"keywords": [
+		"brikcss",
+		"stakcss",
+		"bundler",
+		"stakcss bundler",
+		"css",
+		"compiler",
+		"postcss"
+	],
+	"main": "./lib/stakcss-bundler-postcss.js",
+	"directories": {
+		"lib": "./lib"
+	},
+	"files": [
+		"lib"
+	],
+	"publishConfig": {
+		"tag": "dev",
+		"access": "public"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "node ./node_modules/.bin/pre-commit-lint --ignore=css",
+			"commit-msg": "commitlint -e $GIT_PARAMS && . ./node_modules/.bin/commit-msg-stamp-branch ${GIT_PARAMS}",
+			"pre-push": ". ./node_modules/.bin/pre-push-check-stage && echo \"\n[ok] Pushing code...\""
+		}
+	},
+	"scripts": {
+		"start": "npm run test:unit -- --watch",
+		"ci": "concurrently \"npm run test:lint\" \"npm run test:coverage\" && npm run test:report",
+		"test": "concurrently \"npm run test:lint\" \"npm run test:coverage\"",
+		"test:lint": "node ./node_modules/.bin/eslint ./lib/*.js && echo \"\n[ok] Linter complete.\n\"",
+		"test:unit": "node ./node_modules/.bin/mocha \"./test/*.spec.js\" --reporter=mocha-better-spec-reporter --colors",
+		"test:coverage": "nyc --reporter=lcov --reporter=text mocha \"./test/*.spec.js\" --recursive",
+		"test:report": "concurrently \"cat coverage/lcov.info | codacy-coverage\" \"cat coverage/lcov.info | coveralls\"",
+		"semantic-release": "semantic-release"
+	},
+	"dependencies": {
+		"fs-extra": "5.x",
+		"postcss": "6.x"
+	},
+	"devDependencies": {
+		"@brikcss/git-hooks": "1.x",
+		"@brikcss/stakcss": "0.x",
+		"@commitlint/cli": "6.x",
+		"autoprefixer": "8.x",
+		"codacy-coverage": "2.x",
+		"concurrently": "3.x",
+		"coveralls": "3.x",
+		"mocha": "5.x",
+		"mocha-better-spec-reporter": "3.x",
+		"nyc": "11.x",
+		"postcss-scss": "1.x",
+		"precss": "3.x",
+		"rimraf": "2.x",
+		"semantic-release": "15.x"
+	}
+}

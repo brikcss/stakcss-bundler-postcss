@@ -1,0 +1,33 @@
+/* postcss-advanced-variables plugin */
+
+.icon-foo {
+		background: url('assets/icons/foo.png');
+	}
+
+.icon-bar {
+		background: url('assets/icons/bar.png');
+	}
+
+.icon-baz {
+		background: url('assets/icons/baz.png');
+	}
+
+.col-3 {
+			width: 30%;
+		}
+
+.col-5 {
+			width: 50%;
+		}
+
+h1,
+h2,
+h3 {
+	color: #242424;
+	font-size: 4em;
+}
+
+.some-heading-component > :first-child {
+	color: #111111;
+	font-size: 6em;
+}

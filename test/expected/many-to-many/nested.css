@@ -1,0 +1,15 @@
+/* postcss-nested plugin */
+.phone_title {
+		width: 500px;
+	}
+@media (max-width: 500px) {
+		.phone_title {
+				width: auto;
+		}
+}
+body.is_dark .phone_title {
+			color: white;
+}
+.phone img {
+		display: block;
+}

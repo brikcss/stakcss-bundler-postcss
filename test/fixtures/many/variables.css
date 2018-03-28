@@ -1,0 +1,31 @@
+/* postcss-advanced-variables plugin */
+$dir: assets/icons;
+
+@each $icon in (foo, bar, baz) {
+	.icon-$icon {
+		background: url('$dir/$icon.png');
+	}
+}
+
+@for $count from 1 to 5 by 2 {
+	@if $count > 2 {
+		.col-$count {
+			width: #{$count}0%;
+		}
+	}
+}
+
+@mixin heading-text($color: #242424, $font-size: 4em) {
+	color: $color;
+	font-size: $font-size;
+}
+
+h1,
+h2,
+h3 {
+	@include heading-text;
+}
+
+.some-heading-component > :first-child {
+	@include heading-text(#111111, 6em);
+}

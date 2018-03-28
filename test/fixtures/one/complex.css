@@ -1,0 +1,111 @@
+/* postcss-extend-rule plugin */
+%thick-border {
+	border: thick dotted red;
+}
+
+.serious-modal {
+	font-style: normal;
+	font-weight: bold;
+
+	@media (max-width: 240px) {
+		@extend .modal:hover;
+	}
+}
+
+.modal {
+	@extend %thick-border;
+
+	color: red;
+}
+
+.modal:hover:not(:focus) {
+	outline: none;
+}
+
+/* postcss-advanced-variables plugin */
+$dir: assets/icons;
+
+@each $icon in (foo, bar, baz) {
+	.icon-$icon {
+		background: url('$dir/$icon.png');
+	}
+}
+
+@for $count from 1 to 5 by 2 {
+	@if $count > 2 {
+		.col-$count {
+			width: #{$count}0%;
+		}
+	}
+}
+
+@mixin heading-text($color: #242424, $font-size: 4em) {
+	color: $color;
+	font-size: $font-size;
+}
+
+h1,
+h2,
+h3 {
+	@include heading-text;
+}
+
+.some-heading-component > :first-child {
+	@include heading-text(#111111, 6em);
+}
+
+/* postcss-preset-env plugin */
+@custom-media --viewport-medium (width <= 50rem);
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+:root {
+	--mainColor: #12345678;
+}
+
+body {
+	color: var(--mainColor);
+	font-family: system-ui;
+	overflow-wrap: break-word;
+}
+
+:--heading {
+	background-image: image-set(url(img/heading.png) 1x, url(img/heading@2x.png) 2x);
+
+	@media (--viewport-medium) {
+		margin-block: 0;
+	}
+}
+
+a {
+	color: rebeccapurple;
+
+	&:hover {
+		color: color-mod(var(--mainColor) alpha(80%));
+	}
+}
+
+/* postcss-property-lookup plugin */
+.Test {
+	margin-left: 20px;
+	margin-right: @margin-left;
+	color: red;
+	background: @color url('test.png');
+	line-height: 1.5;
+	font-size: @(line-height)em;
+}
+
+/* postcss-nested plugin */
+.phone {
+	&_title {
+		width: 500px;
+		@media (max-width: 500px) {
+			width: auto;
+		}
+		body.is_dark & {
+			color: white;
+		}
+	}
+	img {
+		display: block;
+	}
+}
