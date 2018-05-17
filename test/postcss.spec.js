@@ -133,6 +133,23 @@ describe('postcss()', () => {
 		});
 	});
 
+	it('compiles from a config file', () => {
+		return stak({
+			source: 'test/fixtures/one/one.css',
+			output: '.temp/one.css',
+			bundlers: [
+				{
+					run: './lib/stakcss-bundler-postcss.js'
+				}
+			]
+		}).then(() => {
+			assert.equal(
+				fs.readFileSync('.temp/one.css', 'utf8').replace(/\t[\s]+/g, '\t'),
+				fs.readFileSync('test/expected/one/one.css', 'utf8')
+			);
+		});
+	});
+
 	it('compiles many-to-one with a sourcemap');
 	it('compiles many-to-many with multiple sourcemaps');
 });
