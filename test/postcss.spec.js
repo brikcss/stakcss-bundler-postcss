@@ -7,7 +7,8 @@ const autoprefix = require('autoprefixer');
 const postcssBundler = {
 	run: './lib/stakcss-bundler-postcss.js',
 	options: {
-		map: false
+		map: false,
+		skipConfig: true
 	},
 	plugins: [
 		autoprefix({
@@ -57,7 +58,8 @@ describe('postcss()', () => {
 					run: postcssBundler.run,
 					options: {
 						syntax: require('postcss-scss'),
-						map: false
+						map: false,
+						skipConfig: true
 					},
 					plugins: [
 						autoprefix({
@@ -84,7 +86,8 @@ describe('postcss()', () => {
 					run: postcssBundler.run,
 					options: {
 						syntax: require('postcss-scss'),
-						map: false
+						map: false,
+						skipConfig: true
 					},
 					plugins: [
 						autoprefix({
@@ -111,7 +114,8 @@ describe('postcss()', () => {
 					run: postcssBundler.run,
 					options: {
 						syntax: require('postcss-scss'),
-						map: false
+						map: false,
+						skipConfig: true
 					},
 					plugins: [
 						autoprefix({
