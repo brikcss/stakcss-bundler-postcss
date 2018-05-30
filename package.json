@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/stakcss-bundler-postcss",
-	"version": "0.2.4",
+	"version": "0.3.0",
 	"description": "Stakcss bundler which runs PostCSS.",
 	"author": "Brikcss <https://github.com/brikcss>",
 	"contributors": [
