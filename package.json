@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/stakcss-bundler-postcss",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Stakcss bundler which runs PostCSS.",
 	"author": "Brikcss <https://github.com/brikcss>",
 	"contributors": [
@@ -37,7 +37,7 @@
 	"husky": {
 		"hooks": {
 			"pre-commit": "node ./node_modules/.bin/pre-commit-lint --ignore=css",
-			"commit-msg": "commitlint -e $GIT_PARAMS && . ./node_modules/.bin/commit-msg-stamp-branch ${GIT_PARAMS}",
+			"commit-msg": "commitlint -e $HUSKY_GIT_PARAMS && . ./node_modules/.bin/commit-msg-stamp-branch ${HUSKY_GIT_PARAMS}",
 			"pre-push": ". ./node_modules/.bin/pre-push-check-stage && echo \"\n[ok] Pushing code...\""
 		}
 	},
@@ -52,24 +52,24 @@
 		"semantic-release": "semantic-release"
 	},
 	"dependencies": {
-		"cosmiconfig": "5.0.3",
-		"fs-extra": "5.x",
-		"postcss": "6.x"
+		"cosmiconfig": "5.0.5",
+		"fs-extra": "6.0.1",
+		"postcss": "6.0.22"
 	},
 	"devDependencies": {
-		"@brikcss/git-hooks": "1.x",
-		"@brikcss/stakcss": "0.x",
-		"@commitlint/cli": "6.x",
-		"autoprefixer": "8.x",
-		"codacy-coverage": "2.x",
-		"concurrently": "3.x",
-		"coveralls": "3.x",
-		"mocha": "5.x",
-		"mocha-better-spec-reporter": "3.x",
-		"nyc": "11.x",
-		"postcss-scss": "1.x",
-		"precss": "3.x",
-		"rimraf": "2.x",
-		"semantic-release": "15.x"
+		"@brikcss/git-hooks": "1.2.0",
+		"@brikcss/stakcss": "0.8.0",
+		"@commitlint/cli": "6.2.0",
+		"autoprefixer": "8.5.2",
+		"codacy-coverage": "3.0.0",
+		"concurrently": "3.5.1",
+		"coveralls": "3.0.1",
+		"mocha": "5.2.0",
+		"mocha-better-spec-reporter": "3.1.0",
+		"nyc": "12.0.1",
+		"postcss-scss": "1.0.5",
+		"precss": "3.1.2",
+		"rimraf": "2.6.2",
+		"semantic-release": "15.5.0"
 	}
 }
