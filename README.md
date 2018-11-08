@@ -1,5 +1,7 @@
 # Stakcss PostCSS Bundler
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/brikcss/stakcss-bundler-postcss.svg)](https://greenkeeper.io/)
+
 > [Stakcss](https://github.com/brikcss/stakcss) Bundler that compiles [PostCSS](http://postcss.org/).
 
 <!-- Shields. -->
